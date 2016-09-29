@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :posts
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -25,7 +27,7 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
-
+root 'posts#index' 
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
