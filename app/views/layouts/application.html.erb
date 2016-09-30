@@ -14,22 +14,22 @@
       <div class = "container">
         
         <div class= "navbar-header" >
-         <p><%= link_to 'Twitterapp', root_path %></p>
+         <p><%= link_to 'twitter', root_path %></p>
         </div>
 
         <% if user_signed_in? %> 
 
         <ul class="nav navbar-nav">
 
-          <li><%= link_to "🏠 ホーム", posts_path %></li>
-          <li><%= link_to "🔔 通知", root_path %></li>
-          <li><%= link_to "📨 メッセージ", root_path %></li>
+          <li class="nav_item"><%= link_to "🏠 ホーム", posts_path %></li>
+          <li class="nav_item"><%= link_to "🔔 通知", root_path %></li>
+          <li class="nav_item"><%= link_to "📨 メッセージ", root_path %></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "マイページ", root_path %></li>
-          <li><%= link_to "設定", root_path %></li>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <li class="nav_item"><%= link_to "マイページ", root_path %></li>
+          <li class="nav_item"><%= link_to "設定", root_path %></li>
+          <li class="nav_item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
         </ul>
         <% else %>
         <ul class="nav navbar-nav navbar-right new-navbar">

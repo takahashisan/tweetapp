@@ -59,6 +59,10 @@
     padding-left: 0;
     list-style: none;
 }
+.nav_item{
+	color: #696969;
+	font-size: 15px;
+}
 .new-navbar{
     float: left;
     list-style-type: none;
