@@ -65,8 +65,7 @@
 
         <%= f.text_area :body ,:id => "tweet-content" ,:class => "form-controll" %>
         <br>
-        <%= f.submit :value => "つぶやく",:class => "btn btn-primary" %>
-        
+        <%= f.submit :value => "つぶやく",data: { confirm: 'この内容でよろしいですか？?' }, :class => "btn btn-primary" %>
         <% end %>
       </div>
       
