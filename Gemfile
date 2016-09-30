@@ -37,6 +37,8 @@ gem 'less-rails'
 
 gem 'twitter-bootstrap-rails'
 
+gem 'kaminari'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
