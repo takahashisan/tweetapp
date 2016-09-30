@@ -1,4 +1,12 @@
-<%= form_for(@post, url: choose_new_or_edit) do |f| %>
+
+
+<div class="col-xs-6" id="posts-content">
+  <div class="list-group">
+    <div class="list-group-item">
+      <h3 class="list-name">編集画面</h3>
+        <div class="list-group"> 
+        <div class="show-content">
+        <%= form_for(@post, url: choose_new_or_edit) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -10,11 +18,17 @@
     </div>
   <% end %>
   
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
+  <%= f.text_area :body ,:id => "tweet-content" ,:class => "form-controll" %>
+        <br>
+  <%= f.submit :value => "更新する",data: { confirm: 'この内容でよろしいですか？?' }, :class => "btn btn-primary" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="back">
+  <%= link_to '戻る', @post %> | <%= link_to 'トップへ', posts_path %>
+   </div>
 <% end %>
+        </div>
+
+</div>
+</div>
+</div>
+</div>
