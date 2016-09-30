@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Twitterapp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class ="application">
+
+  <header>
+
+    <div class = "navbar navbar-default">
+      <div class = "container">
+        
+        <div class= "navbar-header" >
+         <p><%= link_to 'twitter', root_path %></p>
+        </div>
+
+        <% if user_signed_in? %> 
+
+        <ul class="nav navbar-nav">
+
+          <li class="nav_item"><%= link_to "🏠 ホーム", posts_path %></li>
+          <li class="nav_item"><%= link_to "🔔 通知", root_path %></li>
+          <li class="nav_item"><%= link_to "📨 メッセージ", root_path %></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav_item"><%= link_to "マイページ", root_path %></li>
+          <li class="nav_item"><%= link_to "設定", root_path %></li>
+          <li class="nav_item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        </ul>
+        <% else %>
+        <ul class="nav navbar-nav navbar-right new-navbar">
+          <li><%= link_to "サインイン", new_user_registration_path %> </li>
+          <li><%= link_to "ログイン", new_user_session_path %></ul>
+        </ul>
+        <% end %>
+        </div>
+    </div>
+</header>
+
+<div class="yield">
+  <%= yield %>
+</div>
+</body>
+</html>
+
+
