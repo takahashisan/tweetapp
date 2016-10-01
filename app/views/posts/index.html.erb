@@ -1,129 +1,96 @@
 <div id = "time_line"
 <div id="tweets-content">
-<div class="container">
-<div class="row">
-<div class="col-xs-4 left-content">
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="panel panel-default">
-
-    <div class="panel-body">
-
-      <h4 class="user">
-        <span class="user-name-prof">
-        current_user.name
-        </span>
-        <span class="user-id">@current_user.name</span>
-      </h4>
-
-      <div class="user-activity">
+    <div class="container">
         <div class="row">
-          <div class="col-xs-4 tweets-num">
-            <div class="text">
-              つぶやき
+            <div class="col-xs-4 left-content">
+                <%= form_for(@post) do |f| %>
+        <% if @post.errors.any? %>
+            <div id="error_explanation">
+                <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+                <ul>
+                    <% @post.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                </ul>
             </div>
-            <div class="num"> 
-              <%= current_user.posts.count %>
-            </div>
-          </div>
-
-          <div class="col-xs-4 tweets-num">
-            <div class="text">
-              フォロー
-            </div>
-            <div class="num">             
-            </div>       
-          </div>
-          <div class="col-xs-4 tweets-num">
-            <div class="text">
-              フォロワー
-            </div>
-            <div class="num"> 
-            </div>
-          </div>
-         
-        </div><!-- row -->
-      </div><!-- user-activity -->
-    </div><!-- panel-body -->
-
-
-    <div class="new-tweet">
-      
-      <div class="form-group new-tweet">
-        <%= form_for(@post) do |f| %>
-
-        <%= f.text_area :body ,:id => "tweet-content" ,:class => "form-controll" %>
-        <br>
-        <%= f.submit :value => "つぶやく",data: { confirm: 'この内容でよろしいですか？?' }, :class => "btn btn-primary" %>
         <% end %>
-      </div>
-      
-    </div><!-- new-tweet -->
-
-
-
-  </div><!-- panel panel-default -->
-
-<% if notice %>
-  <div class="alert alert-info">
-    <p><%= notice %></p>
-  </div>
-<% end %>
-
-
-</div>
-
-<div class="col-xs-8 right-content">
-
-
-  <div class="list-group">
-    <% @posts.each do |post| %>
-     <%=link_to post_path(post) do %>
-    <div class = "tweet list-group-item">
-        <h4 class="user">
-        <object><span class="user-name">
-       
-        </span></object>
-        <span class="user-id">@aaaa</span>
-
-        <span class="time pull-right"><%= distance_of_time_in_words_to_now(post.created_at) %></span>
-        </h4>
-
-        
-        <div class="tweet-content">
-          <p class="body-text"><%= post.body %></p>
-          <div class="content-footer">
-             
-          </div><!-- content-footer -->
-
-        </div><!-- tweet-content -->
-    </div><!-- tweet list-group-item -->
-  <% end %>
-    <% end %>
-
-  </div><!-- list-group -->
-  <br>
-<div class="page_area"><%= paginate @posts %></div>
-<br>
-<% end %>
-
-</div><!-- right-content -->
-
-
-
-
-</div>
-</div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4 class="user">
+                    <span class="user-name-prof">
+                        current_user.name
+                    </span>
+                    <span class="user-id">@current_user.name</span>
+                </h4>
+                <div class="user-activity">
+                    <div class="row">
+                        <div class="col-xs-4 tweets-num">
+                            <div class="text">
+                                つぶやき
+                            </div>
+                            <div class="num"> 
+                                <%= current_user.posts.count %>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 tweets-num">
+                            <div class="text">
+                                フォロー
+                            </div>
+                            <div class="num">             
+                            </div>       
+                        </div>
+                        <div class="col-xs-4 tweets-num">
+                            <div class="text">
+                                フォロワー
+                            </div>
+                            <div class="num"> 
+                            </div>
+                        </div>
+                    </div><!-- row -->
+                </div><!-- user-activity -->
+            </div><!-- panel-body -->
+            <div class="new-tweet">
+                <div class="form-group new-tweet">
+                    <%= form_for(@post) do |f| %>
+                        <%= f.text_area :body ,:id => "tweet-content" ,:class => "form-controll" %>
+                        <br>
+                        <%= f.submit :value => "つぶやく",data: { confirm: 'この内容でよろしいですか？?' }, :class => "btn btn-primary" %>
+                    <% end %>
+                </div>
+            </div><!-- new-tweet -->
+        </div><!-- panel panel-default -->
+        <% if notice %>
+            <div class="alert alert-info">
+                <p><%= notice %></p>
+            </div>
+        <% end %>
+            </div>
+            <div class="col-xs-8 right-content">
+                <div class="list-group">
+                    <% @posts.each do |post| %>
+                        <%=link_to post_path(post) do %>
+                            <div class = "tweet list-group-item">
+                                <h4 class="user">
+                                    <object><span class="user-name">
+                                        </span></object>
+                                        <span class="user-id">@aaaa</span>
+                                        <span class="time pull-right"><%= distance_of_time_in_words_to_now(post.created_at) %></span>
+                                </h4>
+                                <div class="tweet-content">
+                                    <p class="body-text"><%= post.body %></p>
+                                    <div class="content-footer">
+                                    </div><!-- content-footer -->
+                                </div><!-- tweet-content -->
+                            </div><!-- tweet list-group-item -->
+                        <% end %>
+                    <% end %>
+                </div><!-- list-group -->
+                <br>
+                <div class="page_area"><%= paginate @posts %></div>
+                <br>
+            <% end %>
+            </div><!-- right-content -->
+        </div>
+    </div>
 </div>
 </div>
